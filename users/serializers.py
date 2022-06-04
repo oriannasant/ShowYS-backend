@@ -11,6 +11,7 @@ import re
 from .models import Profile
 from post.serializers import *
 
+
 class CreateUserSerializer(serializers.Serializer):
     first_name = serializers.CharField(max_length=150)
     last_name = serializers.CharField(max_length=150)
@@ -155,7 +156,18 @@ class HomeSerializer(serializers.Serializer):
     def get_post(self, post):
         current_user = self.context.get('user_id')
         return PostSerializer(post, many=False, context ={'user_id': current_user}).data
-    
+
+#codigo orianna
+class ChangePasswordSerializer(serializers.Serializer):
+    model = User
+
+    """
+    Serializer for password change endpoint.
+    """
+    old_password = serializers.CharField(required=True)
+    new_password = serializers.CharField(required=True)
+#----
+
 # class HomeSerializer(serializers.ModelSerializer):
 #     id = serializers.SerializerMethodField()
 #     image = serializers.SerializerMethodField()

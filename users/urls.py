@@ -1,5 +1,7 @@
-from django.urls import path
+from django.urls import path, include
 from .views import *
+
+from .views import ChangePasswordView
 
 urlpatterns = [
     path('create/user/', CreateUser.as_view(), name = 'user_create'),
@@ -13,4 +15,7 @@ urlpatterns = [
     path('logout/', LogoutView.as_view(), name='logout_user'),
     path('checkAuthenticated/', CheckAuthenticatedView.as_view(), name='checkAuthenticated_user'),
     path('feed/', HomeView.as_view(), name='feed_user'),
+    path('change-password/', ChangePasswordView.as_view(), name='change-password'),
+    path('password_reset/', include('django_rest_passwordreset.urls', namespace='password_reset')),
+
 ]

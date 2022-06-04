@@ -43,6 +43,7 @@ THIRD_PARTY_APPS = [
     'corsheaders',
     'rest_framework.authtoken',
     'rest_framework',
+    'django_rest_passwordreset',
 ]
 
 LOCAL_APPS = [
@@ -89,13 +90,13 @@ WSGI_APPLICATION = 'showys.wsgi.application'
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
 DATABASES = {
-    'default': {
+     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'Showys',
+        'NAME': 'prueba2022',
         'USER': 'postgres',
-        'PASSWORD': 'chini',
+        'PASSWORD': '1234',
         'HOST': '127.0.0.1',
-        'DATABASE_PORT': '5432',
+        'DATABASE_PORT': '5432'
 
     }
 }
@@ -166,3 +167,5 @@ CORS_ALLOW_ALL_ORIGINS = True
 # CORS_ALLOW_CREDENTIALS = True
 # es la lista de orígenes autorizados para realizar solicitudes. Por ejemplo, a continuación, he especificado cuatro orígenes:
 # CORS_ALLOWED_ORIGINS = ['http://localhost:3000', ]
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
